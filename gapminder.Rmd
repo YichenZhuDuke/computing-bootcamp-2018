@@ -6,20 +6,20 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.width = 7)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, fig.width = 7)
 ```
 
 
 ## Load packages
 
-```{r message=FALSE}
+```{r}
 library(tidyverse)
 ```
 
 ## Load data
 
 ```{r}
-gap <- read_csv("https://bit.ly/gap_data")
+gap <- read_csv("https://bit.ly/gap_data_upd")
 ```
 
 ## Exercises
@@ -27,9 +27,14 @@ gap <- read_csv("https://bit.ly/gap_data")
 ### Exercise 1
 
 How many observations are in this dataset?
-
-```{r nrow}
+```{r}
+obs = nrow(gap)
 ```
+
+
+There are `r obs` 
+
+
 
 ### Exercise 2
 
@@ -37,6 +42,10 @@ Visualize the relationship between GDP and life expectancy for
 countries in Europe in 1952 using a scatter plot.
 
 ```{r eu_52}
+eu_52 <- gap %>%
+  filter(continent == "Europe", year == 1952)
+ggplot(data = eu_52, aes(x = gdpPercap, y = lifeExp)) + 
+  geom_point()
 ```
 
 ### Exercise 3
