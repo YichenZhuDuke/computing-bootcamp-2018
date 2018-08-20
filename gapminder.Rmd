@@ -30,8 +30,8 @@ How many observations are in this dataset?
 ```{r}
 obs = nrow(gap)
 ```
-
-
+fort
+fank
 There are `r obs` 
 
 
